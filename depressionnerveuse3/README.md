@@ -2,17 +2,6 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 # J'ai presque réussi le projet, juste pour le tableau quand je rentre une valeur dans le modal, il le montre en retard dans le console log et je n'ai pas encore fait en sorte de l'afficher dans la premiere page.
 
-
-
-
-
-
-
-
-
-
-
-
 # Getting Started
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.

@@ -10,7 +10,7 @@ export default function TestModal(props) {
 
 
     return (
-        <Modal visible={props.visible}>
+        <Modal animationType="fade"  visible={props.visible}>
             <View>
                 <TextInput placeholder="ajouter un article" onChangeText={e=>setRentrerTexte(e)}></TextInput>
                 <View>
