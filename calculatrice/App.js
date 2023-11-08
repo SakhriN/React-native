@@ -12,7 +12,6 @@ function App() {
 
         if (valeurAjoutee === "=") {
             return display
-            console
         }
 
         if (valeurAjoutee === "AC") {
@@ -32,26 +31,26 @@ function App() {
             <View style={styles.row}>
 
                 <Pressable onPress={() => composant("AC")}>
-                    <View>
-                        <Text style={styles.text}>AC</Text>
+                    <View style={styles.button}>
+                        <Text>AC</Text>
                     </View>
                 </Pressable>
 
                 <Pressable onPress={() => composant("^")}>
-                    <View>
-                        <Text style={styles.text}>^</Text>
+                    <View style={styles.button}>
+                        <Text>^</Text>
                     </View>
                 </Pressable>
 
                 <Pressable onPress={() => composant("%")}>
-                    <View>
-                        <Text style={styles.text}>%</Text>
+                    <View style={styles.button}>
+                        <Text>%</Text>
                     </View>
                 </Pressable>
 
                 <Pressable onPress={() => composant("/")}>
-                    <View>
-                        <Text style={styles.text}>/</Text>
+                    <View style={styles.button}>
+                        <Text>/</Text>
                     </View>
                 </Pressable>
 
@@ -60,26 +59,26 @@ function App() {
             <View style={styles.row}>
 
                 <Pressable onPress={() => composant("7")}>
-                    <View>
-                        <Text style={styles.text}>7</Text>
+                    <View style={styles.button}>
+                        <Text>7</Text>
                     </View>
                 </Pressable>
 
                 <Pressable onPress={() => composant("8")}>
-                    <View>
-                        <Text style={styles.text}>8</Text>
+                    <View style={styles.button}>
+                        <Text>8</Text>
                     </View>
                 </Pressable>
 
                 <Pressable onPress={() => composant("9")}>
-                    <View>
-                        <Text style={styles.text}>9</Text>
+                    <View style={styles.button}>
+                        <Text>9</Text>
                     </View>
                 </Pressable>
 
                 <Pressable onPress={() => composant("*")}>
-                    <View>
-                        <Text style={styles.text}>X</Text>
+                    <View style={styles.button}>
+                        <Text>X</Text>
                     </View>
                 </Pressable>
 
@@ -88,26 +87,26 @@ function App() {
             <View style={styles.row}>
 
                 <Pressable onPress={() => composant("4")}>
-                    <View>
-                        <Text style={styles.text}>4</Text>
+                    <View style={styles.button}>
+                        <Text>4</Text>
                     </View>
                 </Pressable>
 
                 <Pressable onPress={() => composant("5")}>
-                    <View>
-                        <Text style={styles.text}>5</Text>
+                    <View style={styles.button}>
+                        <Text>5</Text>
                     </View>
                 </Pressable>
 
                 <Pressable onPress={() => composant("6")}>
-                    <View>
-                        <Text style={styles.text}>6</Text>
+                    <View style={styles.button}>
+                        <Text>6</Text>
                     </View>
                 </Pressable>
 
                 <Pressable onPress={() => composant("-")}>
-                    <View>
-                        <Text style={styles.text}>-</Text>
+                    <View style={styles.button}>
+                        <Text>-</Text>
                     </View>
                 </Pressable>
 
@@ -116,26 +115,26 @@ function App() {
             <View style={styles.row}>
 
                 <Pressable onPress={() => composant("1")}>
-                    <View>
-                        <Text style={styles.text}>1</Text>
+                    <View style={styles.button}>
+                        <Text>1</Text>
                     </View>
                 </Pressable>
 
                 <Pressable onPress={() => composant("2")}>
-                    <View>
-                        <Text style={styles.text}>2</Text>
+                    <View style={styles.button}>
+                        <Text>2</Text>
                     </View>
                 </Pressable>
 
                 <Pressable onPress={() => composant("3")}>
-                    <View>
-                        <Text style={styles.text}>3</Text>
+                    <View style={styles.button}>
+                        <Text>3</Text>
                     </View>
                 </Pressable>
 
                 <Pressable onPress={() => composant("+")}>
-                    <View>
-                        <Text style={styles.text}>+</Text>
+                    <View style={styles.button}>
+                        <Text>+</Text>
                     </View>
                 </Pressable>
 
@@ -143,25 +142,25 @@ function App() {
 
             <View style={styles.row}>
                 <Pressable onPress={() => composant(".")}>
-                    <View>
+                    <View style={styles.button}>
                         <Text>.</Text>
                     </View>
                 </Pressable>
 
                 <Pressable onPress={() => composant("0")}>
-                    <View>
+                    <View style={styles.button}>
                         <Text>0</Text>
                     </View>
                 </Pressable>
 
                 <Pressable onPress={() => composant("Del")}>
-                    <View>
+                    <View style={styles.button}>
                         <Text>Del</Text>
                     </View>
                 </Pressable>
 
                 <Pressable onPress={() => composant("=")}>
-                    <View>
+                    <View style={styles.button}>
                         <Text>=</Text>
                     </View>
                 </Pressable>
@@ -177,21 +176,23 @@ const styles = StyleSheet.create({
         fontSize: 30,
         width: 'auto',
         height: 250,
-        marginBottom: 10,
+        marginBottom: 2,
         backgroundColor: "gray"
-    },
-    text: {
-        fontSize: 50,
-    },
-    text: {
-        width: '100%',
-
     },
     row: {
         flexDirection: 'row',
         justifyContent: 'space-around',
-        marginTop: 90,
+        marginTop: 50,
     },
+    button:{
+        borderWidth:1,
+        borderColor:"black",
+        width :60,
+        height:60,
+        borderRadius:10,
+        justifyContent:"center",
+        alignItems:"center",
+    }
 });
 
 
