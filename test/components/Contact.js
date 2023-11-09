@@ -12,7 +12,7 @@ function Contact({ navigation, route }) {
         <View>
             <Text>Contact</Text>
             <Text>Avec la route :</Text>
-            <Text>Nom : {route.params.nom}</Text>
+            <Text style={styles.monde}>Nom : {route.params.nom}</Text>
             <Text>Prenom : {route.params.prenom}</Text>
             <Text>Numero : {route.params.numero}</Text>
             <Text>Description : {route.params.description}</Text>
