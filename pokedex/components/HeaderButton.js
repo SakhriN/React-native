@@ -9,7 +9,7 @@ import TrackPlayer from 'react-native-track-player';
 import { setupPlayer, addTracks } from './trackPlayerServices';
 
 function HeaderButton() {
-
+  let bool = false
   const [isPlayerReady, setIsPlayerReady] = useState(false);
 
   useEffect(() => {
@@ -27,6 +27,23 @@ function HeaderButton() {
     setup();
   }, []);
 
+
+  function bouton(){
+switch(bool){
+case true :
+  TrackPlayer.stop()
+  bool = false
+  console.log(bool)
+  break;
+  default :
+  TrackPlayer.play()
+  bool = true
+  console.log(bool)
+  break;
+}
+
+  }
+
   if(!isPlayerReady) {
     return (
       <SafeAreaView style={styles.container}>
@@ -37,7 +54,7 @@ function HeaderButton() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Button title="Play" color="black" onPress={() => TrackPlayer.play()}/>
+      <Button title="Play" color="black" onPress={() => bouton()}/>
     </SafeAreaView>
   );
 }
