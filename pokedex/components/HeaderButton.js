@@ -1,42 +1,52 @@
-import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Button,
+  ActivityIndicator,
+} from 'react-native';
 import TrackPlayer from 'react-native-track-player';
-import pokerap from "../assets/pokerap.mp3"
-const HeaderButton = ({ onPress }) => {
-  const handlePress = async () => {
-    // Vérifiez si le lecteur audio est déjà initialisé
-    const isInit = await TrackPlayer.isInit();
+import { setupPlayer, addTracks } from './trackPlayerServices';
 
-    // Initialisez le lecteur audio si ce n'est pas déjà fait
-    if (!isInit) {
-      await TrackPlayer.setupPlayer({});
+function HeaderButton() {
+
+  const [isPlayerReady, setIsPlayerReady] = useState(false);
+
+  useEffect(() => {
+    async function setup() {
+      let isSetup = await setupPlayer();
+
+      const queue = await TrackPlayer.getQueue();
+      if(isSetup && queue.length <= 0) {
+        await addTracks();
+      }
+
+      setIsPlayerReady(isSetup);
     }
 
-    // Ajoutez votre morceau audio à la file d'attente (remplacez par votre propre configuration)
-    await TrackPlayer.add({
-      id: '1',
-      url: pokerap,
-      title: 'Nom de votre piste',
-    });
+    setup();
+  }, []);
 
-    // Démarrez la lecture
-    await TrackPlayer.play();
-  };
+  if(!isPlayerReady) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <ActivityIndicator size="large" color="#bbb"/>
+      </SafeAreaView>
+    );
+  }
 
   return (
-    <TouchableOpacity onPress={handlePress} style={styles.button}>
-      <Text style={styles.buttonText}>Play Sound</Text>
-    </TouchableOpacity>
+    <SafeAreaView style={styles.container}>
+      <Button title="Play" color="black" onPress={() => TrackPlayer.play()}/>
+    </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
-  button: {
-    marginRight: 10,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 16,
+  container: {
+    padding: 20,
+    backgroundColor: '#ff0000',
+    borderRadius:25,
   },
 });
 
